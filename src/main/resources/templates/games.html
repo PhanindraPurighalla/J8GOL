@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Of Life | Initiated Games</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<table>
+    <th:block th:each="game: ${games}">
+        <tr>
+            <th>Actions</th>
+            <th>Game Id</th>
+            <th>Number of Players</th>
+        </tr>
+        <form class="joined_players" name="joined_players" th:action="@{/game-of-life/join}" th:method="POST">
+            <td>
+                <div th:if="${game.joinPermissible}"><input class="btn" type="submit" value="Join"></div>
+            </td>
+            <td th:text="${game.gameId}">Game Id</td>
+            <input type="hidden" th:value="${game.gameId}" th:name="gameId">
+            <td th:text="${game.numPlayers}">Number of Players</td>
+            <input type="hidden" th:value="${game.numPlayers}" th:name="numPlayers">
+            <input type="hidden" th:value="${joiningPlayer}" th:name="playerName">
+        </form>
+        <tr>
+            <th>Player Details</th>
+            <th>Player Name</th>
+            <th>Cell Position</th>
+            <th>Number Spun</th>
+        </tr>
+        <tr th:each="player: ${game.players}">
+            <form class="move_player_pegs" name="move_player_pegs" th:object="${player}"
+                  th:action="@{/game-of-life/move-player}" th:method="POST">
+                <td>
+                    <div th:unless="${game.joinPermissible}"><input class="btn" type="submit" value="Move"></div>
+                </td>
+                <td th:text="${player.playerName}"> Player [n] Name</td>
+                <input type="hidden" th:value="${player.playerName}" th:name="playerName">
+                <input type="hidden" th:value="${game.gameId}" th:name="gameId">
+                <td th:text="${player.cellPosition}"> Player [n] Cell Position</td>
+                <input type="hidden" th:value="${player.cellPosition}" th:name="cellPosition">
+                <td>
+                    <input type="text" id="number_spun" name="numberSpun" th:field="*{numberSpun}"/>
+                </td>
+        </form>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

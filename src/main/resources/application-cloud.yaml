@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gcp:
+      sql:
+        enabled: true
+        database-name: gameoflifedb
+        instance-connection-name: zinc-sanctuary-324114:asia-south2:gameoflife
+  datasource:
+    hikari:
+      maximum-pool-size: 5
