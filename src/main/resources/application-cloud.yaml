@@ -4,7 +4,13 @@ spring:
       sql:
         enabled: true
         database-name: gameoflifedb
-        instance-connection-name: zinc-sanctuary-324114:asia-south2:gameoflife
+        instance-connection-name: zinc-sanctuary-324114:us-central1:gameoflifeinst
+#      credentials: used only when app is started locally
+#        location: file:/Users/phanindrapurighalla/Downloads/zinc-sanctuary-324114-f613c6713508.json
+#        encoded-key: AIzaSyDoyF0reooeLh2vwbz8Eh26rVnvWzMrpew
   datasource:
+    password: r00t@g01
     hikari:
       maximum-pool-size: 5
+
+

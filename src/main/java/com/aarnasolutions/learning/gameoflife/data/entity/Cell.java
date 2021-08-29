@@ -13,11 +13,11 @@ import javax.persistence.*;
 @Table(name="CELL")
 public class Cell {
     @Id
-    @Column(name="CELL_ID")
+    @Column(name="ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long cellId;
 
-    @Column(name="CELL_ACTION_ID")
+    @Column(name="ACTION_ID")
     private long cellActionId;
 
     @Column(name="NEXT_CELL_ID")

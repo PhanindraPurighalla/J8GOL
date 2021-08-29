@@ -13,11 +13,11 @@ import javax.persistence.*;
 @Table(name = "ACTION")
 public class Action {
     @Id
-    @Column(name = "ACTION_ID")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long actionId;
 
-    @Column(name = "ACTION_NAME")
+    @Column(name = "NAME")
     private String actionName;
 
     @Column(name="IS_LIFE_CHOICE")
