@@ -1,13 +1,13 @@
 create table action
-(action_id                  number          not null,
- action_name                varchar2(30)    not null,
- is_life_choice             char(1)         not null);
+(id                  number          not null,
+ name                varchar2(30)    not null,
+ is_life_choice      char(1)         not null);
 
 create table cell
-(cell_id                    number          not null,
- cell_action_id             number          not null,
- next_cell_id               number          null,
- alt_next_cell_id           number          null);
+(id                    number          not null,
+ action_id             number          not null,
+ next_cell_id          number          null,
+ alt_next_cell_id      number          null);
 
 create table career_type
 (career_type_id             number          not null,
